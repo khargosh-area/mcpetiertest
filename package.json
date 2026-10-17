@@ -1,20 +1,30 @@
 {
-  "name": "tiertestbot-v6-1-rechecked",
-  "version": "6.1.0",
+  "name": "tiertestbot",
+  "version": "8.0.0",
   "private": true,
   "type": "module",
-  "description": "Minecraft PvP tier testing Discord bot",
+  "description": "TierTestBot V8.0 \u2014 Premium Minecraft PvP tier testing Discord bot with 24/7 reliability",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "check": "node --check index.js"
+    "check": "node --check index.js && node --check src/db.js && node --check src/constants.js && node --check src/card.js && node --check src/logger.js && node --check src/validation.js && node --check src/setup.js && node --check src/tickets.js && node --check src/commands.js",
+    "test": "node --test tests/*.test.js",
+    "dev": "node index.js"
   },
   "dependencies": {
     "discord.js": "^14.19.3",
     "dotenv": "^16.6.1",
-    "sharp": "^0.34.5"
+    "sharp": "0.35.5"
   },
   "engines": {
-    "node": ">=20"
-  }
+    "node": ">=20.9.0"
+  },
+  "keywords": [
+    "discord",
+    "minecraft",
+    "pvp",
+    "tier",
+    "bot"
+  ],
+  "license": "MIT"
 }
