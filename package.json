@@ -1,18 +1,37 @@
 {
-  "name": "tiertestbot-v6-1-rechecked",
-  "version": "6.1.0",
+  "name": "tiertestbot",
+  "version": "6.2.0",
   "private": true,
   "type": "module",
-  "description": "Minecraft PvP tier testing Discord bot",
+  "description": "TierTestBot — Minecraft PvP tier testing Discord bot with a Deploy Hatch style control panel",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "check": "node --check index.js"
+    "bot": "node index.js",
+    "dev:bot": "node --watch index.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start:dashboard": "next start",
+    "lint": "next lint",
+    "check": "node --check index.js && tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
     "discord.js": "^14.19.3",
     "dotenv": "^16.6.1",
+    "next": "15.5.28",
+    "pg": "^8.16.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "server-only": "^0.0.1",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=20"
