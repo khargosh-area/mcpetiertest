@@ -22,14 +22,14 @@ TierTestBot is a production-ready Discord bot for Minecraft PvP tier testing, te
 - **Premium Cards:** Minecraft skin (mc-heads.net / visage / crafatar) with tier accent, server name, gamertag, previous tier, tester, region/device/note/date, footer `Made by Khargosh with ❤️`
 - **Commands:** `/setup`, `/register`, `/test`, `/tier`, `/profile`, `/history`, `/leaderboard`, `/modes`, `/queue`, `-help`
 - **24/7 Reliability:** Auto-reconnect, exponential backoff, health heartbeat, graceful SIGTERM/SIGINT, lockfile, structured logging
-- **Persistence:** SQLite via Node 22 `node:sqlite` (WAL) with JSON fallback — survives restarts, no data loss
+- **Persistence:** SQLite via `node:sqlite` (WAL; Node 22.13+ and Node 24) with JSON fallback — survives restarts, no data loss
 
 ---
 
 ## Quick Start
 
 ### 1. Requirements
-- Node.js 20+ (22 recommended for built-in SQLite)
+- Node.js 24 LTS recommended (Node 20.9+ supported; built-in SQLite is used on Node 22.13+ and 24)
 - Discord Bot Token + Application Client ID
 - Bot invited with scopes `bot` + `applications.commands` and permissions:
   - Manage Roles, Manage Channels, Manage Nicknames, Send Messages, Embed Links, Attach Files, Read Message History, View Channel, Manage Messages
@@ -91,7 +91,7 @@ npm start
 
 Deploy Hatch expects a Node.js background worker:
 
-- **Runtime:** Node.js >=20
+- **Runtime:** Node.js 24 (supported range: >=20.9.0)
 - **Start command:** `npm start`
 - **Env vars:** `DISCORD_TOKEN`, `CLIENT_ID`
 - **Storage:** `data/` is persistent — contains `guilds.json` and `tiertestbot.db` (SQLite WAL)
@@ -137,7 +137,7 @@ Deploy Hatch expects a Node.js background worker:
 
 ## Database
 
-**Primary:** SQLite via `node:sqlite` (Node 22) — `data/tiertestbot.db` with WAL, normalized tables + JSON blob for compatibility
+**Primary:** SQLite via `node:sqlite` (Node 22.13+ / 24) — `data/tiertestbot.db` with WAL, normalized tables + JSON blob for compatibility
 **Fallback:** `data/guilds.json` (atomic temp-rename writes)
 
 Schema in `database/schema.sql`:
